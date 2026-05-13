@@ -4,12 +4,14 @@ import React, { useEffect, useState } from "react";
 import Input from "../common/Input";
 import Button from "../common/Button";
 import AOS from "aos";
+import Swal from "sweetalert2";
 import "aos/dist/aos.css";
 
 function Form() {
   useEffect(() => {
     AOS.init({
       duration: 1200,
+      once: true,
       offset: 100,
     });
   }, []);
@@ -34,15 +36,40 @@ function Form() {
       formData.email &&
       formData.phone &&
       formData.helpWith &&
-      formData.projectDescription
+      formData.projectDescription &&
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) &&
+      formData.phone.length >= 10
     ) {
-      console.log(formData);
+
+      Swal.fire({
+        title: "Success!",
+        text: "Your form has been submitted successfully.",
+        icon: "success",
+        confirmButtonText: "OK",
+        background: "#f7f7f5",
+        color: "#111111",
+        confirmButtonColor: "#111111",
+      });
+
+      // RESET FORM
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        helpWith: "",
+        projectDescription: "",
+      });
+
+      setErrors(false);
     }
   };
 
   return (
-    <div className="border border-gray-light bg-offwhite py-16 sm:py-24 lg:py-30 overflow-hidden">
-      
+    <div
+      id="form"
+      className="border border-gray-light bg-offwhite py-16 sm:py-24 lg:py-30 overflow-hidden"
+    >
       <div className="max-w-216.5 mx-auto px-4 sm:px-5">
 
         {/* HEADING */}
@@ -62,7 +89,7 @@ function Form() {
             {/* FIRST NAME */}
             <div
               data-aos="fade-right"
-              className="flex w-full lg:min-w-[425px] flex-col gap-3 border-b border-b-gray-light pb-3"
+              className="flex w-full lg:min-w-106.25 flex-col gap-3 border-b border-b-gray-light pb-3"
             >
               <label className="font-jost text-xs font-medium uppercase leading-150 tracking-20 text-dark-primary">
                 First Name
@@ -70,9 +97,13 @@ function Form() {
 
               <Input
                 type="text"
+                value={formData.firstName}
                 placeholder="Enter your first name"
                 onChange={(e) =>
-                  setFormData({ ...formData, firstName: e.target.value })
+                  setFormData({
+                    ...formData,
+                    firstName: e.target.value,
+                  })
                 }
                 className="w-full text-gray-dark placeholder:font-montserrat placeholder:text-sm placeholder:font-normal placeholder:leading-150 placeholder:tracking-10 placeholder:text-gray-dark focus:outline-none"
               />
@@ -88,7 +119,7 @@ function Form() {
             <div
               data-aos="fade-left"
               data-aos-delay="200"
-              className="flex w-full lg:min-w-[425px] flex-col gap-3 border-b border-b-gray-light pb-3"
+              className="flex w-full lg:min-w-106.25 flex-col gap-3 border-b border-b-gray-light pb-3"
             >
               <label className="font-jost text-xs font-medium uppercase leading-150 tracking-20 text-dark-primary">
                 Last Name
@@ -96,9 +127,13 @@ function Form() {
 
               <Input
                 type="text"
+                value={formData.lastName}
                 placeholder="Enter your last name"
                 onChange={(e) =>
-                  setFormData({ ...formData, lastName: e.target.value })
+                  setFormData({
+                    ...formData,
+                    lastName: e.target.value,
+                  })
                 }
                 className="w-full text-gray-dark placeholder:font-montserrat placeholder:text-sm placeholder:font-normal placeholder:leading-150 placeholder:tracking-10 placeholder:text-gray-dark focus:outline-none"
               />
@@ -123,9 +158,13 @@ function Form() {
 
             <Input
               type="text"
+              value={formData.email}
               placeholder="Enter your email address"
               onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
+                setFormData({
+                  ...formData,
+                  email: e.target.value,
+                })
               }
               className="w-full text-gray-dark placeholder:font-montserrat placeholder:text-sm placeholder:font-normal placeholder:leading-150 placeholder:tracking-10 placeholder:text-gray-dark focus:outline-none"
             />
@@ -157,9 +196,13 @@ function Form() {
 
             <Input
               type="text"
+              value={formData.phone}
               placeholder="Enter your phone number"
               onChange={(e) =>
-                setFormData({ ...formData, phone: e.target.value })
+                setFormData({
+                  ...formData,
+                  phone: e.target.value,
+                })
               }
               className="w-full text-gray-dark placeholder:font-montserrat placeholder:text-sm placeholder:font-normal placeholder:leading-150 placeholder:tracking-10 placeholder:text-gray-dark focus:outline-none"
             />
@@ -191,9 +234,13 @@ function Form() {
 
             <Input
               type="text"
+              value={formData.helpWith}
               placeholder="Tell us what you need help with"
               onChange={(e) =>
-                setFormData({ ...formData, helpWith: e.target.value })
+                setFormData({
+                  ...formData,
+                  helpWith: e.target.value,
+                })
               }
               className="w-full text-gray-dark placeholder:font-montserrat placeholder:text-sm placeholder:font-normal placeholder:leading-150 placeholder:tracking-10 placeholder:text-gray-dark focus:outline-none"
             />
@@ -217,6 +264,7 @@ function Form() {
 
             <Input
               type="text"
+              value={formData.projectDescription}
               placeholder="Briefly describe your project"
               onChange={(e) =>
                 setFormData({

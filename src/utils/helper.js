@@ -51,6 +51,7 @@
       title: "Keys in Hand",
       description:
         "We don’t close until you're completely satisfied. Handing over the keys — and seeing your reaction — is our favorite part of the job.",
+        border: "border-r border-r-[#FFFFFF1F]",
     },
   ];
 
@@ -65,13 +66,36 @@
     {
       number: "02",
       title: "Lot Selection & Planning",
-      description:
-        "Finding the right land is as important as the home itself. We assess soil, orientation, topography, and long-term value — before you commit to anything.",
+      description:"Finding the right land is as important as the home itself. We assess soil, orientation, topography, and long-term value — before you commit to anything.",
+        button: "INQUIRE",
     },
     {
       number: "03",
       title: "Light Commercial",
-      description:
-        "Full-service residential and light commercial construction with the same level of craftsmanship, care, and communication on every project.",
+      description: "Full-service residential and light commercial construction with the same level of craftsmanship, care, and communication on every project.",
+        button: "INQUIRE",
     },
   ];
+
+ export const  nav =[
+  {
+   name:"ABOUT",
+   herf:"#"
+ },
+ {
+   name:"SERVICES",
+   herf:"#"
+ },
+ {
+   name:"PORTFOLIO",
+   herf:"#"
+ },
+ {
+   name:"PROCESS",
+   herf:"#"
+ },
+ {
+   name:"CONTACT",
+   herf:"#"
+ },
+]

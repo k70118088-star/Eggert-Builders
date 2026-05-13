@@ -12,19 +12,14 @@ const WhoWeAre = () => {
   }, []);
 
   return (
-    <div
-      data-aos="fade-right"
-      className='my-20 sm:my-28 lg:my-37.5 max-w-328 mx-auto w-full flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-0 px-4 sm:px-6 lg:px-0'
-    >
-      
+    <div data-aos="fade-right"
+      className='my-20 sm:my-28 lg:my-37.5 max-w-328 mx-auto w-full flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-0 px-4 sm:px-6 lg:px-0'>
       <div>
         <p className='uppercase text-gray-primary text-[10px] sm:text-[12px] font-medium leading-150 jost tracking-20'>
           Who We Are
         </p>
       </div>
-
       <div className='max-w-216.75 w-full'>
-        
         <p className='text-dark-secondary mb-2 jost font-semibold text-[26px] sm:text-custom-4xl leading-120'>
           Chicagoland's most trusted custom home builder.
         </p>

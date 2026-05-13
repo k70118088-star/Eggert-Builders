@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Button from "./Button";
 import { useEffect, useState } from "react";
+import { nav } from "@/utils/helper";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,6 +43,7 @@ export default function Navbar() {
 
         {/* LEFT LOGO */}
         <div className="flex items-center gap-3.25">
+          <Link href="#">
           <Image
             src={"/assets/images/webp/logo-img.webp"}
             alt="logo"
@@ -49,19 +51,18 @@ export default function Navbar() {
             width={219}
             className="w-[160px] md:w-[190px] lg:w-auto"
           />
+          </Link>
         </div>
 
         {/* DESKTOP MENU */}
         <div className="hidden items-center lg:flex">
           <ul className="flex items-center gap-8">
-            {["ABOUT", "SERVICES", "PORTFOLIO", "PROCESS", "CONTACT"].map(
-              (item) => (
-                <li key={item}>
+            {nav.map((item,index) => (
+                <li key={index}>
                   <Link
-                    href="#"
-                    className="text-[12px] font-medium leading-150 jost tracking-20 text-white transition hover:text-[#53a7ff]"
-                  >
-                    {item}
+                    href={item.herf}
+                    className="text-[12px] font-medium leading-150 jost tracking-20 text-white transition hover:text-[#53a7ff]">
+                    {item.name}
                   </Link>
                 </li>
               )
@@ -83,17 +84,13 @@ export default function Navbar() {
            <div className="hidden sm:block">
           <Button text={"GET A QUOTE"} />
          </div>
-        <button
-          onClick={() => setMenuOpen(true)}
-          className="flex flex-col gap-1.5 "
-        >
+        <button onClick={() => setMenuOpen(true)} className="flex flex-col gap-1.5">
           <span className="h-0.5 w-6 bg-white"></span>
           <span className="h-0.5 w-6 bg-white"></span>
           <span className="h-0.5 w-6 bg-white"></span>
         </button>
         </div>
       </nav>
-
       {/* OVERLAY */}
       <div
         onClick={() => setMenuOpen(false)}
@@ -103,27 +100,17 @@ export default function Navbar() {
             : "pointer-events-none opacity-0"
         }`}
       ></div>
-
       {/* MOBILE SIDEBAR MENU */}
       <div
         className={`fixed top-0 right-0 z-50 flex h-screen w-[300px] flex-col bg-black p-8 transition-all duration-500 lg:hidden ${
-          menuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        
+          menuOpen ? "translate-x-0" : "translate-x-full"}`}>
         {/* TOP */}
         <div className="mb-14 flex items-center justify-between">
-         
-
           {/* CLOSE BUTTON */}
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="text-4xl leading-none text-white"
-          >
+          <button onClick={() => setMenuOpen(false)} className="text-4xl leading-none text-white">
             ×
           </button>
         </div>
-
         {/* MENU ITEMS */}
         <ul className="flex flex-col gap-8">
           {["ABOUT", "SERVICES", "PORTFOLIO", "PROCESS", "CONTACT"].map(
@@ -132,21 +119,18 @@ export default function Navbar() {
                 <Link
                   href="#"
                   onClick={() => setMenuOpen(false)}
-                  className="text-[14px] font-medium uppercase tracking-[3px] text-white transition hover:text-[#53a7ff]"
-                >
+                  className="text-[14px] font-medium uppercase tracking-[3px] text-white transition hover:text-[#53a7ff]">
                   {item}
                 </Link>
               </li>
             )
           )}
         </ul>
-
         {/* BOTTOM */}
         <div className="mt-auto">
           <p className="mb-6 text-[13px] text-white">
             (219) 365-6931
           </p>
-
           <Button text={"GET A QUOTE"} className="w-full" />
         </div>
       </div>

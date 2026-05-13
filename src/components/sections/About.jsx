@@ -11,6 +11,7 @@ const About = () => {
   useEffect(() => {
     Aos.init({
       duration: 1200,
+      once: true,
       offset: 100,
     });
   }, []);
@@ -104,12 +105,8 @@ const About = () => {
             </div>
 
             {/* BUTTON */}
-            <div
-              data-aos="zoom-in"
-              data-aos-delay="900"
-              className="mt-8 sm:mt-10"
-            >
-              <Button text={"WORK WITH US"} variant="outline" />
+            <div data-aos="zoom-in" data-aos-delay="900" className="mt-8 sm:mt-10">
+              <a href="#form"><Button text={"WORK WITH US"} variant="outline" /></a>
             </div>
           </div>
         </div>

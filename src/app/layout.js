@@ -30,6 +30,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${jost.variable} ${cormorant.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="preload" as="image" href="/assets/images/webp/hero.webp" />
+      </head>
       <body className="min-h-full flex flex-col">
         <Navbar />
         {children}

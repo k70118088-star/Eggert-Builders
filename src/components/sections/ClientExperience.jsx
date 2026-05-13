@@ -8,6 +8,7 @@ const ClientExperience = () => {
   useEffect(() => {
     AOS.init({
       duration: 1200,
+      once: true,
       offset: 100,
     });
   }, []);

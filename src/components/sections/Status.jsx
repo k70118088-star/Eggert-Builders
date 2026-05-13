@@ -10,6 +10,7 @@ const Status = () => {
   useEffect(() => {
     AOS.init({
       duration: 1200,
+      once: true,
     });
   }, []);
 

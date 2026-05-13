@@ -9,13 +9,14 @@ const Footer = () => {
       <div className="max-w-328 mx-auto w-full flex flex-col lg:flex-row items-center lg:items-center justify-between gap-10 lg:gap-6">
         
         {/* LOGO */}
+        <Link href="#">
         <Image
           src={"/assets/images/webp/logo-img.webp"}
           alt="logo-img"
           height={"40"}
           width={"230"}
-          className="object-cover w-45 sm:w-57.5 h-auto"
-        />
+          className="object-cover w-45 sm:w-57.5 h-auto"/>
+        </Link>
 
         {/* NAV LINKS */}
         <div>
