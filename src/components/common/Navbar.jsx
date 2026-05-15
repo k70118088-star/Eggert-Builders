@@ -61,7 +61,7 @@ export default function Navbar() {
                 <li key={index}>
                   <Link
                     href={item.herf}
-                    className="text-[12px] font-medium leading-150 jost tracking-20 text-white transition hover:text-[#53a7ff]">
+                    className="text-[12px] font-medium leading-150 jost tracking-20 text-white transition hover:text-[#000000]/80">
                     {item.name}
                   </Link>
                 </li>
@@ -119,7 +119,7 @@ export default function Navbar() {
                 <Link
                   href="#"
                   onClick={() => setMenuOpen(false)}
-                  className="text-[14px] font-medium uppercase tracking-[3px] text-white transition hover:text-[#53a7ff]">
+                  className="text-[14px] font-medium uppercase tracking-[3px] text-white transition hover:text-[#000000]/80">
                   {item}
                 </Link>
               </li>
