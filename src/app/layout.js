@@ -28,8 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${jost.variable} ${cormorant.variable} h-full antialiased`}
-    >
+      className={`${jost.variable} ${cormorant.variable} h-full antialiased`}>
       <head>
         <link rel="preload" as="image" href="/assets/images/webp/hero.webp" />
       </head>

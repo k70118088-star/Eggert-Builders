@@ -84,7 +84,7 @@ export default function Navbar() {
            <div className="hidden sm:block">
           <Button text={"GET A QUOTE"} />
          </div>
-        <button onClick={() => setMenuOpen(true)} className="flex flex-col gap-1.5">
+        <button aria-label="menu button" onClick={() => setMenuOpen(true)} className="flex flex-col gap-1.5">
           <span className="h-0.5 w-6 bg-white"></span>
           <span className="h-0.5 w-6 bg-white"></span>
           <span className="h-0.5 w-6 bg-white"></span>
@@ -107,7 +107,7 @@ export default function Navbar() {
         {/* TOP */}
         <div className="mb-14 flex items-center justify-between">
           {/* CLOSE BUTTON */}
-          <button onClick={() => setMenuOpen(false)} className="text-4xl leading-none text-white">
+          <button aria-label="menu button" onClick={() => setMenuOpen(false)} className="text-4xl leading-none text-white">
             ×
           </button>
         </div>

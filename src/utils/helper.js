@@ -39,6 +39,7 @@
       title: "Plans & Lot",
       description:
         "We help you select the right land and finalize your floor plan — whether it's yours, ours, or custom-designed by our architect.",
+        border: "lg:border-r-0 border-r-[#FFFFFF1F] border-r"
     },
     {
       number: "03",

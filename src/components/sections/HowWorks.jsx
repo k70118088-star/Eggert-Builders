@@ -16,7 +16,7 @@ const HowWorks = () => {
 
   return (
     <section className="bg-[#050505] py-16 sm:py-24 lg:py-30 overflow-hidden">
-      <div className="mx-auto max-w-328 px-4 sm:px-5">
+      <div className="mx-auto max-w-328 px-4 lg:px-0">
         {/* TOP */}
         <div className="flex flex-col gap-8 sm:gap-10 lg:flex-row lg:items-end lg:justify-between">
 
@@ -49,10 +49,10 @@ const HowWorks = () => {
         <div className="mt-10 sm:mt-15 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           
           {process.map((item, index) => (
-            <div  data-aos="fade-up" data-aos-delay={index * 200}>
+            <div key={index} data-aos="fade-up" data-aos-delay={index * 200}>
             <div
               key={index}
-              className={`border-y ${item.border}  border-l h-65 lg:h-72.75 border-l-[#FFFFFF1F] border-y-[#FFFFFF1F] bg-black-soft p-6 xl:p-8 transition-all duration-600 hover:bg-black-soft/50`}>
+              className={`lg:border-y border-y-0 lg:border-t-0 border-t border-t-[#FFFFFF1F] ${item.border}  border-l h-65 lg:h-72.75 border-l-[#FFFFFF1F] border-y-[#FFFFFF1F] bg-black-soft p-6 xl:p-8 transition-all duration-600 hover:bg-black-soft/50`}>
               {/* NUMBER */}
               <h3 className="cormorant text-[44px] xl:text-custom-6xl font-normal leading-120 text-white/12">
                 {item.number}
